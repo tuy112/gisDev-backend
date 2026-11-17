@@ -1,0 +1,17 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: mountain-record
+
+  datasource:
+    url: jdbc:postgresql://192.168.0.37:5432/jstory_db
+    username: jadmin
+    password: jadmin1473
+    driver-class-name: org.postgresql.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
