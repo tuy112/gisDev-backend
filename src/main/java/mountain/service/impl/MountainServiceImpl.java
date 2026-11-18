@@ -93,7 +93,6 @@ public class MountainServiceImpl implements MountainService {
             return mountain;
 
         } catch (Exception e) {
-
             throw new RuntimeException(
                     "산 좌표 검색에 실패했습니다.",
                     e
@@ -101,11 +100,10 @@ public class MountainServiceImpl implements MountainService {
         }
     }
 
+    // 산행 추가
     @Override
     public MountainVO addMountain(MountainVO mountain) {
-
-        if (mountain.getName() == null
-                || mountain.getName().trim().isEmpty()) {
+        if (mountain.getName() == null || mountain.getName().trim().isEmpty()) {
 
             throw new IllegalArgumentException(
                     "산 이름을 입력해주세요."
@@ -118,7 +116,6 @@ public class MountainServiceImpl implements MountainService {
                 || mountain.getLatitude() > 90
                 || mountain.getLongitude() < -180
                 || mountain.getLongitude() > 180) {
-
             throw new IllegalArgumentException(
                     "올바른 좌표가 아닙니다."
             );
@@ -133,7 +130,6 @@ public class MountainServiceImpl implements MountainService {
                     "이미 등록된 산입니다."
             );
         }
-
         mountainMapper.insertMountain(mountain);
 
         return mountain;
